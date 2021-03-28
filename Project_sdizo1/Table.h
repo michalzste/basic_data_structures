@@ -1,4 +1,5 @@
 #pragma once
+#include<string>
 class Table
 {
     int* tab; //tablica dynamiczna
@@ -14,4 +15,5 @@ public:
     void searchInTable(int value);
     void printTable();
     void fullfillTable(int count, int scope);
+    void loadFromFile(char filename[]);
 };

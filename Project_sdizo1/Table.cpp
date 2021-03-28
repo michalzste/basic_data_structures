@@ -1,6 +1,8 @@
 #include "Table.h"
 #include <iostream>
 #include <cstdlib>
+#include <string>
+#include<fstream>
 using namespace std;
 
 Table::Table() : tab(nullptr) , cnt(0)
@@ -63,7 +65,7 @@ void Table::shiftValueFromTable()
     if (cnt == 0) return;
     int* NewTab = new int[cnt - 1];
     for (int i = 1; i < cnt; i++)
-        NewTab[i - 1] = i;
+        NewTab[i - 1] = tab[i];
 
     delete[] tab;
     tab = NewTab;
@@ -110,4 +112,29 @@ void Table::fullfillTable(int count, int scope)
     delete[] tab;
     tab = NewTab;
     cnt = count;
+}
+
+void Table::loadFromFile(char filename[])
+{
+    string line;
+    ifstream myfile(filename);
+    bool sizeF=true;
+
+    if (myfile.is_open())
+    {
+        int* newTab;
+        getline(myfile, line);
+        newTab = new int[stoi(line)];
+        cnt = stoi(line);
+        int i = 0;
+        while (getline(myfile, line))
+        {
+            newTab[i] = stoi(line);
+            i++;
+        }
+        myfile.close();
+
+        delete[] tab;
+        tab = newTab;
+    }
 }

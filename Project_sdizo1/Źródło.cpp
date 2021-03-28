@@ -2,24 +2,15 @@
 #include <numeric>
 #include <chrono>
 #include <cstdlib>
-#include "Table.h"
+#include "Menu.h"
 
-
-Table myTab; //utworzenie obiektu
+ //utworzenie obiektu
 
 int main()
 {
  
-    myTab.addValueToTable(0, 15);
-    myTab.pushValueToTable(5);
-    myTab.unshiftValueToTable(50);
-    
-    myTab.printTable();
-
-    myTab.searchInTable(5);
-
-    myTab.fullfillTable(100, 1000);
-    myTab.printTable();
+    Menu menu;
+    menu.startLoop();
 
     auto start = std::chrono::high_resolution_clock::now(); //poczatek odliczania
   
