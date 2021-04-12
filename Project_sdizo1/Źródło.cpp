@@ -1,20 +1,17 @@
-#include <iostream>
+﻿#include <iostream>
 #include <numeric>
-#include <chrono>
-#include <cstdlib>
-#include "Menu.h"
 
- //utworzenie obiektu
+#include "Menu.h"
+#include "Measure.h"
+
 
 int main()
 {
- 
     Menu menu;
+  //  Measure measure;
+  //  measure.measureHeapSearch(10000);
+     
+    std::cout << "\n";
+     
     menu.startLoop();
-
-    auto start = std::chrono::high_resolution_clock::now(); //poczatek odliczania
-  
-    auto stop = std::chrono::high_resolution_clock::now(); //koniec odliczania
-    std::chrono::duration < double > czas = stop - start; //odejmij czasy
-    std::cout << "Sredni czas dodawania elementow do tablicy:" << czas.count()  << "\n"; //wyswietl w sekundach
 }

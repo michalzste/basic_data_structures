@@ -19,13 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Heap.cpp" />
+    <ClCompile Include="ListElement.cpp" />
+    <ClCompile Include="Measure.cpp" />
     <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TreePrinter.cpp" />
+    <ClCompile Include="Two_way_list.cpp" />
+    <ClCompile Include="Two_way_list.h" />
     <ClCompile Include="Źródło.cpp" />
     <ClCompile Include="Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Heap.h" />
+    <ClInclude Include="ListElement.h" />
+    <ClInclude Include="Measure.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Table.h" />
+    <ClInclude Include="TreePrinter.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="example.txt" />

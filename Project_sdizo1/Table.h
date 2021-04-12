@@ -1,12 +1,10 @@
 #pragma once
-#include<string>
 class Table
 {
     int* tab; //tablica dynamiczna
     int cnt; //ilosc elementow w tablicy
 public:
     Table();
-    void clearTable();
     void addValueToTable(int index, int value);
     void pushValueToTable(int value);
     void popValueFromTable();
@@ -16,4 +14,5 @@ public:
     void printTable();
     void fullfillTable(int count, int scope);
     void loadFromFile(char filename[]);
+    void deleteFromTable(int index);
 };

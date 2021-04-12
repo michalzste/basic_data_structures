@@ -10,15 +10,6 @@ Table::Table() : tab(nullptr) , cnt(0)
     
 } 
 
-void Table::clearTable()
-{
-    if (cnt == 0)
-        return;
-
-    delete[] tab; //tutaj tez powinny byc nawiasy kwadratowe
-    tab = nullptr; //delete u¿yte na nullptr nie bedzie powodowac bledu
-    cnt = 0; //
-}
 
 void Table::addValueToTable(int index, int value)
 {
@@ -34,6 +25,29 @@ void Table::addValueToTable(int index, int value)
     delete[] tab; //zwalniam pamiec zajmowana przez poprzednia tablice
     tab = NewTab; // przypisuje wskaznik na nowa tablice.
     ++cnt; // zwiekszam licznik
+}
+
+void Table::deleteFromTable(int index)
+{
+    if (index <0 || index > cnt)return;
+    if (index == 0)
+    {
+        shiftValueFromTable();
+        return;
+    }
+    if (index == cnt)
+    {
+        popValueFromTable();
+        return;
+    }
+
+    int* newTab = new int[cnt - 1];
+    for (int i = 0; i < index; i++) newTab[i] = tab[i];
+    for (int i = index; i < cnt-1; i++) newTab[i] = tab[i+1];
+
+    delete[] tab;
+    tab = newTab;
+    --cnt;
 }
 
 void Table::pushValueToTable(int value)
@@ -118,7 +132,6 @@ void Table::loadFromFile(char filename[])
 {
     string line;
     ifstream myfile(filename);
-    bool sizeF=true;
 
     if (myfile.is_open())
     {
